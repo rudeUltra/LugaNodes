@@ -26,7 +26,7 @@ const AccountInfo = () => {
     })
     
     const location = useLocation();
-    const { accountAddress, accountBalance } = location.state;
+    const { accountAddress, accountBalance ,count} = location.state;
     // const { accountBalance, accountAddress } = location.state;
   return (
     <div>
@@ -83,6 +83,30 @@ const AccountInfo = () => {
       <Stat>
   
   <StatNumber>{accountAddress}</StatNumber>
+  
+</Stat>
+  </CardBody>
+
+  
+  
+</Card>
+
+
+<Card maxW='sm' bg="green.500">
+         <CardBody  color="black">
+    <Image
+      src='https://learn.microsoft.com/training/achievements/ethereum-blockchain-development-social.png'
+      alt='Green double couch with wooden legs'
+      borderRadius='lg'
+    />
+     <Center mt="50px">
+      <Heading size='md'>No of Transactions</Heading>
+     
+
+      </Center>
+      <Stat>
+  
+  <StatNumber>{count}</StatNumber>
   
 </Stat>
   </CardBody>

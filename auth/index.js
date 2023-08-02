@@ -7,6 +7,7 @@ const User = require('./models/User');
 const session = require('express-session');
 const cors = require("cors");
 
+
 const crypto = require('crypto');
 
 const generateRandomString = (length) => {
@@ -22,6 +23,7 @@ console.log(sessionKey);
 
 const app = express();
 const PORT = 4000;
+app.use(cors());
 
 // Connect to MongoDB
 

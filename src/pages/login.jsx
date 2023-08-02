@@ -19,6 +19,18 @@ import {
 import Nav from '../components/Nav';
 import {useToast} from '@chakra-ui/react';
 
+import axios from 'axios';
+
+// Function to call when status code is 200
+
+function demo2(){
+  console.log("already exists");
+
+}
+
+
+// Data for the POST request (adjust as needed)
+
 
 
 const Login = () => {
@@ -32,6 +44,8 @@ const Login = () => {
 	const [accountBalance, setAccountBalance] = useState('');
 
 	const [isConnected, setIsConnected] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
 	const { ethereum } = window;
 
@@ -62,6 +76,7 @@ const Login = () => {
 			});
 
 			let balance = await provider.getBalance(accounts[0]);
+      let count=await provider.getTransactionCount(accounts[0]);
 			let bal = ethers.utils.formatEther(balance);
 
 			setAccountAddress(accounts[0]);
@@ -70,12 +85,13 @@ const Login = () => {
       
 
       if(accountAddress && accountBalance){
-        console.log("bhai kuch horaha ?")
+        console.log(count);
         console.log(accountAddress);
         navigate('/display', {
           state: {
             accountAddress: accountAddress,
             accountBalance: accountBalance,
+            count:count
           },
         });
 
@@ -106,6 +122,30 @@ const Login = () => {
   function loginHandler(){
     //ZZZ
    
+    const postData = {
+      username: email,
+      password: password
+    };
+    
+    // Make the POST request
+    axios.post('http://localhost:4000/login', postData)
+      .then(response => {
+          const statusCode = response.status;
+          console.log('Status code:', statusCode);
+          
+          if (statusCode === 200) {
+              demo();
+          } else {
+              console.log('API responded with a non-200 status code');
+          }
+      })
+      .catch(error => {
+          console.error('Error:', error.message);
+      });
+  }
+  function demo() {
+    console.log('Sign Up done.');
+    // Your demo function logic here
     toast({
       title: 'Successfully Created Account.',
       description: "Account Details saved in MongoDB",
@@ -114,6 +154,31 @@ const Login = () => {
       isClosable: true,
       mb:"100px"
     })
+
+}
+
+  function signupHandler(){
+    const postData = {
+      username: email,
+      password: password
+    };
+    
+    // Make the POST request
+    axios.post('http://localhost:4000/signup', postData)
+      .then(response => {
+          const statusCode = response.status;
+          console.log('Status code:', statusCode);
+          
+          if (statusCode === 201) {
+              demo();
+          } else {
+              console.log('API responded with a non-200 status code');
+          }
+      })
+      .catch(error => {
+          console.error('Error:', error.message);
+      });
+
   }
 
 
@@ -143,15 +208,20 @@ const Login = () => {
           type="email"
           variant="filled"
           mb={3}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <Input
           placeholder="Password"
           type="password"
           variant="filled"
           mb={6}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <Button colorScheme="teal" mb={8} onClick={loginHandler}>
           Log In
+        </Button>
+        <Button colorScheme="teal" mb={8} onClick={signupHandler}>
+          Sign Up.
         </Button>
         <FormControl display="flex" alignItems="center">
           <FormLabel htmlFor="dark_mode" mb="0">
