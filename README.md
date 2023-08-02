@@ -6,7 +6,7 @@
 
 ![](https://github.com/rudeUltra/LugaNodes/blob/main/screen-recording-_3_.gif?raw=true)
 
-<h3>Features</h3>
+<h3>Features 💲</h3>
 <ul>
   <li>Dynamic User Interface made with React to provide feedback to the User</li>
   <li>Local and Web3 authentication supported</li>
@@ -18,7 +18,7 @@
 </ul>
 
 
-<h3>How to Run</h3>
+<h3>How to Run 🤓</h3>
 
 <ul>
   <li>Start the local MongoDB server on ur Device make sure to check the port Number</li>
@@ -30,7 +30,7 @@
 
 ![](https://github.com/rudeUltra/LugaNodes/blob/main/Screenshot%202023-08-02%20152506.png?raw=true)
 
-<h3>Tech Stacj</h3>
+<h3>Tech Stack ⭐</h3>
 
 <ul>
   <li>React.JS | ChakraUI</li>
