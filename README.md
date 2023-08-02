@@ -28,5 +28,5 @@
   <li>Hit npm start and open the application on localhost:3000</li>
 </ul>
 
-
+![](https://github.com/rudeUltra/LugaNodes/blob/main/Screenshot%202023-08-02%20152506.png?raw=true)
 
