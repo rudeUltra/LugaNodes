@@ -30,3 +30,10 @@
 
 ![](https://github.com/rudeUltra/LugaNodes/blob/main/Screenshot%202023-08-02%20152506.png?raw=true)
 
+<h3>Tech Stacj</h3>
+
+<ul>
+  <li>React.JS | ChakraUI</li>
+  <li>NodeJS | Express | Mongoose</li>
+  <li>MongoDB</li>
+</ul>
